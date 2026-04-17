@@ -19,59 +19,47 @@
 html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Syne',sans-serif;-webkit-text-size-adjust:100%;}
 body{display:flex;flex-direction:column;overflow:hidden;}
 
-/* ── SETUP SCREEN ── */
-#setupScreen{
-  position:fixed;inset:0;background:var(--bg);z-index:999;
-  display:flex;align-items:center;justify-content:center;padding:24px;
-}
-.setup-card{
-  background:var(--s1);border:1px solid var(--b2);border-radius:20px;
-  padding:32px 24px;width:100%;max-width:420px;
-}
-.setup-logo{font-size:22px;font-weight:700;color:var(--acc);margin-bottom:6px;}
-.setup-sub{font-size:14px;color:var(--t2);margin-bottom:28px;line-height:1.6;}
-.setup-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
-.setup-input{
-  width:100%;background:var(--s2);border:1px solid var(--b1);border-radius:10px;
-  padding:14px;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);
-  outline:none;margin-bottom:12px;-webkit-appearance:none;
-}
+/* SETUP SCREEN */
+#setupScreen{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;padding:24px;}
+.setup-card{background:var(--s1);border:1px solid var(--b2);border-radius:20px;padding:32px 24px;width:100%;max-width:420px;}
+.setup-logo{font-size:26px;font-weight:700;color:var(--acc);margin-bottom:8px;letter-spacing:-0.5px;}
+.setup-tagline{font-size:14px;color:var(--t2);margin-bottom:24px;line-height:1.6;}
+.setup-step{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.setup-input{width:100%;background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:14px;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);outline:none;margin-bottom:10px;-webkit-appearance:none;transition:border 0.15s;}
 .setup-input:focus{border-color:var(--acc);}
 .setup-input::placeholder{color:var(--t3);}
-.setup-btn{
-  width:100%;background:var(--acc);color:#0f0f0f;border:none;border-radius:10px;
-  padding:14px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-}
+.setup-btn{width:100%;background:var(--acc);color:#0f0f0f;border:none;border-radius:10px;padding:15px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;margin-bottom:14px;}
 .setup-btn:active{background:var(--acc2);}
-.setup-hint{font-size:12px;color:var(--t3);margin-top:16px;line-height:1.7;text-align:center;}
+.setup-err{font-size:12px;color:var(--red);margin-bottom:10px;padding:10px 12px;background:rgba(255,91,91,0.1);border-radius:8px;border:1px solid rgba(255,91,91,0.25);display:none;}
+.setup-hint{font-size:12px;color:var(--t3);line-height:1.8;text-align:center;}
 .setup-hint a{color:var(--acc);text-decoration:none;}
-.setup-err{font-size:13px;color:var(--red);margin-bottom:10px;display:none;}
+.setup-divider{height:1px;background:var(--b1);margin:20px 0;}
 
-/* ── TOP BAR ── */
+/* TOP BAR */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:52px;min-height:52px;background:var(--s1);border-bottom:1px solid var(--b1);flex-shrink:0;}
 .logo{font-size:17px;font-weight:700;color:var(--acc);}
 .logo small{color:var(--t3);font-weight:400;font-size:11px;margin-left:4px;}
-.topbar-right{display:flex;align-items:center;gap:10px;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
 .topbar-date{font-family:'DM Mono',monospace;font-size:11px;color:var(--t3);}
-.key-btn{background:none;border:1px solid var(--b1);border-radius:6px;padding:5px 10px;font-size:11px;color:var(--t3);cursor:pointer;font-family:'Syne',sans-serif;}
-.key-btn:active{background:var(--s2);}
+.key-chip{background:var(--s2);border:1px solid var(--b1);border-radius:20px;padding:5px 12px;font-size:11px;color:var(--t3);cursor:pointer;font-family:'Syne',sans-serif;display:flex;align-items:center;gap:5px;-webkit-tap-highlight-color:transparent;}
+.key-chip:active{background:var(--s3);}
+.key-dot{width:6px;height:6px;border-radius:50%;background:var(--grn);}
 
-/* ── SCROLL ── */
+/* CONTENT */
 .content{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--nav-h) + 8px);}
 
-/* ── BOTTOM NAV ── */
+/* BOTTOM NAV */
 .bottomnav{display:flex;height:var(--nav-h);min-height:var(--nav-h);background:var(--s1);border-top:1px solid var(--b1);flex-shrink:0;}
-.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;color:var(--t3);font-family:'Syne',sans-serif;font-size:11px;font-weight:600;transition:color 0.15s;-webkit-tap-highlight-color:transparent;padding:8px 4px;}
-.nav-btn .ico{font-size:18px;line-height:1;}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;color:var(--t3);font-family:'Syne',sans-serif;font-size:11px;font-weight:600;-webkit-tap-highlight-color:transparent;padding:8px 4px;transition:color 0.15s;}
+.nav-btn .ico{font-size:20px;line-height:1;}
 .nav-btn.active{color:var(--acc);}
 .nav-btn:active{opacity:0.6;}
 
-/* ── PAGES ── */
+/* PAGES */
 .page{display:none;padding:16px 16px 0;}
 .page.active{display:block;}
 
-/* ── AI BOX ── */
+/* AI BOX */
 .ai-box{background:var(--s1);border:1px solid var(--b2);border-radius:14px;padding:16px;margin-bottom:16px;}
 .ai-tag{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--acc);display:flex;align-items:center;gap:6px;margin-bottom:10px;}
 .ai-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--acc);animation:blink 2s infinite;}
@@ -80,24 +68,24 @@ body{display:flex;flex-direction:column;overflow:hidden;}
 .ai-input{flex:1;min-width:0;background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:13px 14px;font-family:'Syne',sans-serif;font-size:15px;color:var(--t1);outline:none;-webkit-appearance:none;transition:border 0.15s;}
 .ai-input:focus{border-color:var(--acc);}
 .ai-input::placeholder{color:var(--t3);}
-.ai-btn{background:var(--acc);color:#0f0f0f;border:none;border-radius:10px;padding:13px 18px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
+.ai-btn{background:var(--acc);color:#0f0f0f;border:none;border-radius:10px;padding:13px 20px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
 .ai-btn:active{background:var(--acc2);}
 .ai-btn:disabled{opacity:0.4;}
 .ai-status{font-size:12px;color:var(--t2);margin-top:10px;min-height:18px;font-family:'DM Mono',monospace;line-height:1.5;}
 .ai-status.ok{color:var(--grn);}
 .ai-status.err{color:var(--red);}
 
-/* ── METRICS ── */
+/* METRICS */
 .metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
 .mc{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:13px 11px;}
 .mc-lbl{font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--t3);margin-bottom:4px;}
-.mc-val{font-size:19px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:-0.5px;color:var(--t1);}
+.mc-val{font-size:18px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:-0.5px;color:var(--t1);}
 .mc-val.hi{color:var(--acc);}
 .mc-sub{font-size:10px;color:var(--t3);margin-top:2px;font-family:'DM Mono',monospace;}
 
-/* ── LIST ── */
+/* LIST */
 .sec-lbl{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
-.elist{display:flex;flex-direction:column;gap:6px;}
+.elist{display:flex;flex-direction:column;gap:6px;padding-bottom:8px;}
 .eitem{display:flex;align-items:center;gap:9px;background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:11px 12px;animation:sli 0.18s ease;}
 @keyframes sli{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 .epill{font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;white-space:nowrap;flex-shrink:0;font-family:'DM Mono',monospace;}
@@ -105,17 +93,17 @@ body{display:flex;flex-direction:column;overflow:hidden;}
 .eamt{font-size:14px;font-weight:700;font-family:'DM Mono',monospace;color:var(--t1);flex-shrink:0;}
 .edel{background:none;border:none;color:var(--t3);font-size:22px;cursor:pointer;padding:0 2px;line-height:1;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
 .edel:active{color:var(--red);}
-.empty{text-align:center;padding:36px 0;color:var(--t3);font-size:14px;line-height:2;}
+.empty{text-align:center;padding:40px 0;color:var(--t3);font-size:14px;line-height:2.2;}
 
-/* ── SUMMARY ── */
+/* SUMMARY */
 .mnav{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.mbtn{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:9px 14px;color:var(--t2);font-family:'Syne',sans-serif;font-size:13px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.mbtn{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:10px 16px;color:var(--t2);font-family:'Syne',sans-serif;font-size:13px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
 .mbtn:active{background:var(--s2);}
 .mname{font-size:18px;font-weight:700;flex:1;}
 .cc{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:16px;margin-bottom:12px;}
 .cc-title{font-size:12px;font-weight:600;color:var(--t2);margin-bottom:14px;}
 
-/* ── BUDGET ── */
+/* BUDGET */
 .bform{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
 .bform-row{display:flex;gap:8px;}
 .bsel,.binp{flex:1;min-width:0;background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:13px 12px;font-family:'Syne',sans-serif;font-size:14px;color:var(--t1);outline:none;-webkit-appearance:none;}
@@ -136,11 +124,11 @@ body{display:flex;flex-direction:column;overflow:hidden;}
 .brow-bar{height:5px;background:var(--s3);border-radius:3px;overflow:hidden;}
 .brow-fill{height:100%;border-radius:3px;transition:width 0.4s;}
 
-/* ── SPINNER ── */
+/* SPINNER */
 .spin{display:inline-block;width:11px;height:11px;border:2px solid rgba(200,245,98,0.2);border-top-color:var(--acc);border-radius:50%;animation:sp 0.6s linear infinite;vertical-align:middle;margin-right:5px;}
 @keyframes sp{to{transform:rotate(360deg)}}
 
-/* ── DESKTOP ── */
+/* DESKTOP */
 @media(min-width:600px){
   body{flex-direction:row;}
   .topbar{display:none;}
@@ -149,59 +137,62 @@ body{display:flex;flex-direction:column;overflow:hidden;}
   .bottomnav{width:210px;height:100%;flex-direction:column;justify-content:flex-start;border-top:none;border-right:1px solid var(--b1);padding:20px 14px;gap:4px;order:-1;}
   .nav-btn{flex-direction:row;justify-content:flex-start;gap:10px;border-radius:10px;padding:12px 14px;font-size:14px;height:auto;}
   .nav-btn.active{background:var(--acc);color:#0f0f0f;}
-  .nav-logo{display:flex!important;align-items:center;gap:6px;font-size:16px;font-weight:700;color:var(--acc);padding:8px 14px;margin-bottom:16px;}
+  .nav-logo{display:flex!important;align-items:center;gap:6px;font-size:16px;font-weight:700;color:var(--acc);padding:8px 14px;margin-bottom:16px;letter-spacing:-0.3px;}
   .nav-logo small{color:var(--t3);font-weight:400;font-size:11px;}
   .mc-val{font-size:22px;}
+  .metrics{grid-template-columns:1fr 1fr 1fr;}
 }
 .nav-logo{display:none;}
 </style>
 </head>
 <body>
 
-<!-- ── SETUP SCREEN ── -->
+<!-- SETUP SCREEN -->
 <div id="setupScreen">
   <div class="setup-card">
     <div class="setup-logo">💸 Kharcha</div>
-    <div class="setup-sub">Your personal AI expense tracker.<br>Paste your Anthropic API key to get started. It's saved only on this device.</div>
-    <div class="setup-label">Anthropic API Key</div>
-    <div class="setup-err" id="setupErr">Invalid key — make sure it starts with sk-ant-</div>
-    <input class="setup-input" id="keyInput" type="password" placeholder="sk-ant-api03-..." autocomplete="off" autocorrect="off" spellcheck="false"/>
-    <button class="setup-btn" onclick="saveKey()">Save & Start Tracking →</button>
+    <div class="setup-tagline">Your AI expense tracker. Setup takes 30 seconds — you'll never see this screen again.</div>
+    <div class="setup-divider"></div>
+    <div class="setup-step">Paste your Gemini API Key</div>
+    <div class="setup-err" id="setupErr"></div>
+    <input class="setup-input" id="keyInput" type="password" placeholder="AIzaSy..." autocomplete="off" autocorrect="off" spellcheck="false"/>
+    <button class="setup-btn" onclick="saveKey()">Save & Start →</button>
     <div class="setup-hint">
-      Get a free key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a><br>
-      Your key is stored only in your browser's localStorage.<br>It is never sent anywhere except the Anthropic API.
+      Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a><br/>
+      Your key is saved only on <strong style="color:var(--t2)">this device</strong> in browser storage.<br/>
+      It is never shared or sent anywhere except Google's API.
     </div>
   </div>
 </div>
 
-<!-- ── TOP BAR ── -->
+<!-- TOP BAR (mobile) -->
 <div class="topbar">
   <div class="logo">💸 Kharcha <small>AI Tracker</small></div>
   <div class="topbar-right">
     <div class="topbar-date" id="topDate"></div>
-    <button class="key-btn" onclick="changeKey()">🔑 Key</button>
+    <div class="key-chip" onclick="openSettings()"><span class="key-dot"></span>API Key</div>
   </div>
 </div>
 
-<!-- ── CONTENT ── -->
+<!-- CONTENT -->
 <div class="content">
 
-  <!-- LOG -->
+  <!-- LOG PAGE -->
   <div id="pg-log" class="page active">
     <div class="ai-box">
-      <div class="ai-tag">AI powered — type naturally</div>
+      <div class="ai-tag">Gemini AI — type naturally</div>
       <div class="ai-row">
         <input class="ai-input" id="aiInput" type="text" placeholder='"200 lunch", "auto 80", "1.5k shoes"' autocomplete="off"/>
         <button class="ai-btn" id="addBtn" onclick="addExpense()">Add</button>
       </div>
-      <div class="ai-status" id="aiStatus">Just type the amount and what you spent on — AI figures out the rest.</div>
+      <div class="ai-status" id="aiStatus">Just type the amount + what you spent — AI figures out the rest.</div>
     </div>
     <div class="metrics" id="metricsRow"></div>
     <div class="sec-lbl" id="listLbl">Today's expenses</div>
     <div class="elist" id="elist"></div>
   </div>
 
-  <!-- SUMMARY -->
+  <!-- SUMMARY PAGE -->
   <div id="pg-summary" class="page">
     <div class="mnav">
       <button class="mbtn" onclick="changeMonth(-1)">← Prev</button>
@@ -219,7 +210,7 @@ body{display:flex;flex-direction:column;overflow:hidden;}
     </div>
   </div>
 
-  <!-- BUDGET -->
+  <!-- BUDGET PAGE -->
   <div id="pg-budget" class="page">
     <p style="font-size:14px;color:var(--t2);margin-bottom:16px;line-height:1.6">Set monthly limits per category. Get alerts when you're close or over.</p>
     <div class="bform">
@@ -239,7 +230,7 @@ body{display:flex;flex-direction:column;overflow:hidden;}
 
 </div>
 
-<!-- ── BOTTOM NAV ── -->
+<!-- BOTTOM NAV -->
 <nav class="bottomnav">
   <div class="nav-logo">💸 Kharcha <small>AI Tracker</small></div>
   <button class="nav-btn active" onclick="showPage('log',this)"><span class="ico">✦</span><span>Log</span></button>
@@ -248,7 +239,7 @@ body{display:flex;flex-direction:column;overflow:hidden;}
 </nav>
 
 <script>
-const CATS={
+var CATS={
   Food:         {c:'#34d399',bg:'rgba(52,211,153,0.14)'},
   Transport:    {c:'#5b9fff',bg:'rgba(91,159,255,0.14)'},
   Shopping:     {c:'#f472b6',bg:'rgba(244,114,182,0.14)'},
@@ -258,10 +249,10 @@ const CATS={
   Other:        {c:'#888',   bg:'rgba(136,136,136,0.14)'}
 };
 
-let expenses=JSON.parse(localStorage.getItem('kx_exp')||'[]');
-let budgets=JSON.parse(localStorage.getItem('kx_bud')||'{}');
-let vM=new Date().getMonth(),vY=new Date().getFullYear();
-let cCI=null,tCI=null;
+var expenses=JSON.parse(localStorage.getItem('kx_exp')||'[]');
+var budgets=JSON.parse(localStorage.getItem('kx_bud')||'{}');
+var vM=new Date().getMonth(), vY=new Date().getFullYear();
+var cCI=null, tCI=null;
 
 function save(){
   localStorage.setItem('kx_exp',JSON.stringify(expenses));
@@ -270,90 +261,119 @@ function save(){
 function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
 function tod(){return new Date().toISOString().slice(0,10);}
 function nowT(){return new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});}
-function getKey(){return localStorage.getItem('kx_apikey')||'';}
+function getKey(){return localStorage.getItem('kx_gemini_key')||'';}
 
-// ── SETUP ──
+/* ── SETUP ── */
 function saveKey(){
-  const k=document.getElementById('keyInput').value.trim();
-  const err=document.getElementById('setupErr');
-  if(!k.startsWith('sk-ant-')){err.style.display='block';return;}
+  var k=document.getElementById('keyInput').value.trim();
+  var err=document.getElementById('setupErr');
+  if(!k||k.length<10){
+    err.textContent='Please paste a valid Gemini API key (starts with AIza...)';
+    err.style.display='block';return;
+  }
   err.style.display='none';
-  localStorage.setItem('kx_apikey',k);
+  localStorage.setItem('kx_gemini_key',k);
   document.getElementById('setupScreen').style.display='none';
 }
 
-function changeKey(){
-  document.getElementById('keyInput').value=getKey();
+function openSettings(){
+  var k=getKey();
+  document.getElementById('keyInput').value=k;
+  document.getElementById('setupErr').style.display='none';
   document.getElementById('setupScreen').style.display='flex';
 }
 
-document.getElementById('keyInput').addEventListener('keydown',function(e){
-  if(e.key==='Enter')saveKey();
-});
-
-// ── INIT ──
-window.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded',function(){
+  /* Enter key on setup */
+  document.getElementById('keyInput').addEventListener('keydown',function(e){if(e.key==='Enter')saveKey();});
+  /* Enter key on expense input */
   document.getElementById('aiInput').addEventListener('keydown',function(e){if(e.key==='Enter')addExpense();});
+
+  /* Date in topbar */
   document.getElementById('topDate').textContent=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+
+  /* Show setup only if no key saved */
   if(getKey()){
     document.getElementById('setupScreen').style.display='none';
-  } else {
-    document.getElementById('setupScreen').style.display='flex';
   }
-  renderLog();renderBudget();
+
+  renderLog();
+  renderBudget();
 });
 
-// ── ADD EXPENSE ──
+/* ── ADD EXPENSE via Gemini ── */
 async function addExpense(){
-  const raw=document.getElementById('aiInput').value.trim();
+  var raw=document.getElementById('aiInput').value.trim();
   if(!raw)return;
-  const apiKey=getKey();
-  if(!apiKey){changeKey();return;}
-  const btn=document.getElementById('addBtn');
-  const st=document.getElementById('aiStatus');
+  var apiKey=getKey();
+  if(!apiKey){openSettings();return;}
+
+  var btn=document.getElementById('addBtn');
+  var st=document.getElementById('aiStatus');
   btn.disabled=true;
   st.className='ai-status';
   st.innerHTML='<span class="spin"></span>Reading your expense...';
   document.getElementById('aiInput').value='';
 
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
-      body:JSON.stringify({
-        model:'claude-haiku-4-5-20251001',
-        max_tokens:150,
-        system:`Parse expense from Indian user. Return ONLY JSON no markdown:
-{"amount":number,"description":"3-5 word label","category":"Food|Transport|Shopping|Entertainment|Health|Utilities|Other"}
-Or if no amount: {"error":"no amount"}
-1k=1000,1.5k=1500. Hinglish ok.
-"chai 30"->{"amount":30,"description":"chai","category":"Food"}
-"200 lunch dhaba"->{"amount":200,"description":"lunch at dhaba","category":"Food"}
-"auto 80"->{"amount":80,"description":"auto rickshaw","category":"Transport"}
-"recharge 299"->{"amount":299,"description":"mobile recharge","category":"Utilities"}
-"1500 shoes"->{"amount":1500,"description":"shoes","category":"Shopping"}`,
-        messages:[{role:'user',content:raw}]
-      })
-    });
-    const data=await res.json();
+    var res=await fetch(
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+apiKey,
+      {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          contents:[{
+            parts:[{text:
+              'Parse this Indian expense and return ONLY a JSON object, no markdown, no explanation:\n'+
+              '{"amount":number,"description":"3-5 word label","category":"Food|Transport|Shopping|Entertainment|Health|Utilities|Other"}\n'+
+              'If no amount found return: {"error":"no amount"}\n'+
+              'Rules: 1k=1000, 1.5k=1500, rupees/rs/₹ are INR, Hinglish is fine.\n'+
+              'Examples:\n'+
+              '"chai 30" -> {"amount":30,"description":"chai","category":"Food"}\n'+
+              '"200 lunch dhaba" -> {"amount":200,"description":"lunch at dhaba","category":"Food"}\n'+
+              '"auto 80" -> {"amount":80,"description":"auto rickshaw","category":"Transport"}\n'+
+              '"recharge 299" -> {"amount":299,"description":"mobile recharge","category":"Utilities"}\n'+
+              '"1500 shoes" -> {"amount":1500,"description":"shoes","category":"Shopping"}\n\n'+
+              'Input: '+raw
+            }]
+          }],
+          generationConfig:{maxOutputTokens:100,temperature:0}
+        })
+      }
+    );
+
+    var data=await res.json();
+
     if(data.error){
       st.className='ai-status err';
       st.textContent='API error: '+(data.error.message||'Check your API key');
       btn.disabled=false;return;
     }
-    const txt=(data.content||[]).map(function(b){return b.text||'';}).join('').replace(/```json|```/g,'').trim();
-    const p=JSON.parse(txt);
-    if(p.error){st.className='ai-status err';st.textContent='No amount found. Try: "200 on lunch"';btn.disabled=false;return;}
-    const exp={id:Date.now(),amount:p.amount,description:p.description||raw,category:p.category||'Other',date:tod(),time:nowT()};
-    expenses.unshift(exp);save();
+
+    var txt=data.candidates[0].content.parts[0].text.replace(/```json|```/g,'').trim();
+    var p=JSON.parse(txt);
+
+    if(p.error){
+      st.className='ai-status err';
+      st.textContent='No amount found. Try: "200 on lunch" or "auto 80"';
+      btn.disabled=false;return;
+    }
+
+    var exp={
+      id:Date.now(),
+      amount:p.amount,
+      description:p.description||raw,
+      category:p.category||'Other',
+      date:tod(),
+      time:nowT()
+    };
+    expenses.unshift(exp);
+    save();
     st.className='ai-status ok';
     st.textContent='✓ '+exp.description+' — '+fmt(exp.amount)+' · '+exp.category;
-    renderLog();renderBudget();
+    renderLog();
+    renderBudget();
+
   }catch(e){
     st.className='ai-status err';
     st.textContent='Connection error. Make sure you have internet.';
@@ -363,17 +383,22 @@ Or if no amount: {"error":"no amount"}
 
 function deleteExpense(id){
   expenses=expenses.filter(function(e){return e.id!==id;});
-  save();renderLog();renderBudget();
+  save();
+  renderLog();
+  renderBudget();
   if(document.getElementById('pg-summary').classList.contains('active'))renderSummary();
 }
 
-// ── RENDER LOG ──
+/* ── RENDER LOG ── */
 function renderLog(){
-  var now=new Date(),ts=tod();
+  var now=new Date(), ts=tod();
   var te=expenses.filter(function(e){return e.date===ts;});
-  var wa=new Date();wa.setDate(wa.getDate()-7);
+  var wa=new Date(); wa.setDate(wa.getDate()-7);
   var wt=expenses.filter(function(e){return new Date(e.date)>=wa;}).reduce(function(s,e){return s+e.amount;},0);
-  var me=expenses.filter(function(e){var d=new Date(e.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();});
+  var me=expenses.filter(function(e){
+    var d=new Date(e.date);
+    return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();
+  });
   var mt=me.reduce(function(s,e){return s+e.amount;},0);
 
   document.getElementById('metricsRow').innerHTML=
@@ -381,9 +406,12 @@ function renderLog(){
     '<div class="mc"><div class="mc-lbl">This week</div><div class="mc-val">'+fmt(wt)+'</div></div>'+
     '<div class="mc"><div class="mc-lbl">This month</div><div class="mc-val">'+fmt(mt)+'</div><div class="mc-sub">'+me.length+' txns</div></div>';
 
-  document.getElementById('listLbl').textContent='Today\'s expenses ('+te.length+')';
+  document.getElementById('listLbl').textContent="Today's expenses ("+te.length+")";
   var el=document.getElementById('elist');
-  if(!te.length){el.innerHTML='<div class="empty">No expenses today.<br>Type above — AI handles the rest ✦</div>';return;}
+  if(!te.length){
+    el.innerHTML='<div class="empty">No expenses today yet.<br>Type above — AI handles the rest ✦</div>';
+    return;
+  }
   el.innerHTML=te.map(function(e){
     var c=CATS[e.category]||CATS.Other;
     return '<div class="eitem">'+
@@ -395,7 +423,7 @@ function renderLog(){
   }).join('');
 }
 
-// ── SUMMARY ──
+/* ── SUMMARY ── */
 function changeMonth(d){
   vM+=d;
   if(vM>11){vM=0;vY++;}
@@ -406,11 +434,18 @@ function changeMonth(d){
 function renderSummary(){
   var MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
   document.getElementById('mLabel').textContent=MN[vM]+' '+vY;
-  var me=expenses.filter(function(e){var d=new Date(e.date);return d.getMonth()===vM&&d.getFullYear()===vY;});
+  var me=expenses.filter(function(e){
+    var d=new Date(e.date);
+    return d.getMonth()===vM&&d.getFullYear()===vY;
+  });
   var tot=me.reduce(function(s,e){return s+e.amount;},0);
-  var days=[...new Set(me.map(function(e){return e.date;}))].length;
-  var cm=me.reduce(function(a,e){a[e.category]=(a[e.category]||0)+e.amount;return a;},{});
-  var top=Object.entries(cm).sort(function(a,b){return b[1]-a[1];})[0];
+  var dset=[];
+  me.forEach(function(e){if(dset.indexOf(e.date)===-1)dset.push(e.date);});
+  var days=dset.length;
+  var cm={};
+  me.forEach(function(e){cm[e.category]=(cm[e.category]||0)+e.amount;});
+  var topArr=Object.keys(cm).map(function(k){return [k,cm[k]];}).sort(function(a,b){return b[1]-a[1];});
+  var top=topArr[0];
 
   document.getElementById('sumMetrics').innerHTML=
     '<div class="mc"><div class="mc-lbl">Total</div><div class="mc-val hi">'+fmt(tot)+'</div><div class="mc-sub">'+me.length+' items</div></div>'+
@@ -418,11 +453,19 @@ function renderSummary(){
     '<div class="mc"><div class="mc-lbl">Top</div><div class="mc-val" style="font-size:15px">'+(top?top[0]:'—')+'</div><div class="mc-sub">'+(top?fmt(top[1]):'')+'</div></div>';
 
   var ck=Object.keys(CATS).filter(function(c){return cm[c];});
-  if(cCI)cCI.destroy();
+  if(cCI){cCI.destroy();cCI=null;}
   if(ck.length){
     cCI=new Chart(document.getElementById('catChart'),{
       type:'bar',
-      data:{labels:ck,datasets:[{data:ck.map(function(c){return cm[c]||0;}),backgroundColor:ck.map(function(c){return CATS[c].c+'aa';}),borderColor:ck.map(function(c){return CATS[c].c;}),borderWidth:1,borderRadius:4}]},
+      data:{
+        labels:ck,
+        datasets:[{
+          data:ck.map(function(c){return cm[c]||0;}),
+          backgroundColor:ck.map(function(c){return CATS[c].c+'aa';}),
+          borderColor:ck.map(function(c){return CATS[c].c;}),
+          borderWidth:1,borderRadius:4
+        }]
+      },
       options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{
         x:{ticks:{color:'#555',font:{size:11},autoSkip:false,maxRotation:30},grid:{color:'rgba(255,255,255,0.04)'}},
         y:{ticks:{color:'#555',font:{size:10},callback:function(v){return '₹'+Math.round(v/1000)+'k';}},grid:{color:'rgba(255,255,255,0.04)'}}
@@ -431,14 +474,19 @@ function renderSummary(){
   }
 
   var dim=new Date(vY,vM+1,0).getDate();
-  var dl=Array.from({length:dim},function(_,i){
+  var dl=[];
+  for(var i=0;i<dim;i++){
     var dd=vY+'-'+String(vM+1).padStart(2,'0')+'-'+String(i+1).padStart(2,'0');
-    return me.filter(function(e){return e.date===dd;}).reduce(function(s,e){return s+e.amount;},0);
-  });
-  if(tCI)tCI.destroy();
+    dl.push(me.filter(function(e){return e.date===dd;}).reduce(function(s,e){return s+e.amount;},0));
+  }
+  var labels=[];for(var j=1;j<=dim;j++)labels.push(j);
+  if(tCI){tCI.destroy();tCI=null;}
   tCI=new Chart(document.getElementById('trendChart'),{
     type:'line',
-    data:{labels:Array.from({length:dim},function(_,i){return i+1;}),datasets:[{data:dl,borderColor:'#c8f562',backgroundColor:'rgba(200,245,98,0.07)',fill:true,tension:0.35,pointRadius:2,pointBackgroundColor:'#c8f562'}]},
+    data:{
+      labels:labels,
+      datasets:[{data:dl,borderColor:'#c8f562',backgroundColor:'rgba(200,245,98,0.07)',fill:true,tension:0.35,pointRadius:2,pointBackgroundColor:'#c8f562'}]
+    },
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{
       x:{ticks:{color:'#555',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},
       y:{ticks:{color:'#555',font:{size:10},callback:function(v){return '₹'+Math.round(v);}},grid:{color:'rgba(255,255,255,0.04)'}}
@@ -446,32 +494,38 @@ function renderSummary(){
   });
 }
 
-// ── BUDGET ──
+/* ── BUDGET ── */
 function setBudget(){
   var cat=document.getElementById('bCat').value;
   var amt=parseFloat(document.getElementById('bAmt').value);
   if(!amt||amt<=0)return;
-  budgets[cat]=amt;save();renderBudget();
+  budgets[cat]=amt;
+  save();
+  renderBudget();
   document.getElementById('bAmt').value='';
 }
 
 function renderBudget(){
   var now=new Date();
-  var me=expenses.filter(function(e){var d=new Date(e.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();});
-  var sp=me.reduce(function(a,e){a[e.category]=(a[e.category]||0)+e.amount;return a;},{});
+  var me=expenses.filter(function(e){
+    var d=new Date(e.date);
+    return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();
+  });
+  var sp={};
+  me.forEach(function(e){sp[e.category]=(sp[e.category]||0)+e.amount;});
 
   var al='';
   Object.keys(CATS).forEach(function(cat){
-    var s=sp[cat]||0,b=budgets[cat];
+    var s=sp[cat]||0, b=budgets[cat];
     if(!b)return;
     var pct=Math.round(s/b*100);
-    if(pct>=100)al+='<div class="alert alert-o">⚠ Over budget — '+cat+': '+fmt(s)+' of '+fmt(b)+' ('+pct+'%)</div>';
-    else if(pct>=80)al+='<div class="alert alert-w">! '+cat+' at '+pct+'% — '+fmt(b-s)+' left</div>';
+    if(pct>=100) al+='<div class="alert alert-o">⚠ Over budget — '+cat+': '+fmt(s)+' of '+fmt(b)+' ('+pct+'%)</div>';
+    else if(pct>=80) al+='<div class="alert alert-w">! '+cat+' at '+pct+'% — '+fmt(b-s)+' left</div>';
   });
   document.getElementById('alertsBox').innerHTML=al;
 
   document.getElementById('brows').innerHTML=Object.keys(CATS).map(function(cat){
-    var s=sp[cat]||0,b=budgets[cat];
+    var s=sp[cat]||0, b=budgets[cat];
     var pct=b?Math.min(100,Math.round(s/b*100)):0;
     var c=CATS[cat].c;
     var bc=pct>=100?'#ff5b5b':pct>=80?'#ff9a3c':c;
@@ -485,7 +539,7 @@ function renderBudget(){
   }).join('');
 }
 
-// ── NAV ──
+/* ── NAV ── */
 function showPage(id,btn){
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-btn').forEach(function(n){n.classList.remove('active');});
